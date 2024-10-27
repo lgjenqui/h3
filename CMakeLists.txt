@@ -279,6 +279,14 @@ configure_file(${UNCONFIGURED_API_HEADER} ${CONFIGURED_API_HEADER})
 
 set(INSTALL_TARGETS)
 
+find_package(OpenMP)
+if (OPENMP_FOUND)
+    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+    target_compile_definitions(h3 PUBLIC HAVE_OPENMP=${OPENMP_FOUND})
+endif()
+
 function(add_h3_library name h3_alloc_prefix_override)
     add_library(${name} ${LIB_SOURCE_FILES} ${CONFIGURED_API_HEADER})
 
