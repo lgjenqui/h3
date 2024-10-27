@@ -1,0 +1,80 @@
+[  0%] Building C object CMakeFiles/h3.dir/src/h3lib/lib/algos.c.o
+[  0%] Building C object CMakeFiles/h3.dir/src/h3lib/lib/polygon.c.o
+[  9%] Building C object CMakeFiles/h3.dir/src/h3lib/lib/vertex.c.o
+[  9%] Building C object CMakeFiles/h3.dir/src/h3lib/lib/linkedGeo.c.o
+[  9%] Building C object CMakeFiles/h3.dir/src/h3lib/lib/directedEdge.c.o
+[  9%] Linking C static library lib/libh3.a
+[ 27%] Built target h3
+[ 27%] Building C object CMakeFiles/benchmarkPolygon.dir/src/apps/benchmarks/benchmarkPolygon.c.o
+[ 27%] Linking C executable bin/benchmarkPolygon
+[ 36%] Built target benchmarkPolygon
+GEOFENCE
+	-- pointInsideGeoLoopSmall: 0.244030 microseconds per iteration (100000 iterations)
+GEOFENCE
+	-- pointInsideGeoLoopLarge: 0.412560 microseconds per iteration (100000 iterations)
+GEOFENCE
+	-- bboxFromGeoLoopSmall: 0.062300 microseconds per iteration (100000 iterations)
+GEOFENCE
+	-- bboxFromGeoLoopLarge: 0.307960 microseconds per iteration (100000 iterations)
+[ 36%] Built target bench_benchmarkPolygon
+[ 36%] Linking C executable bin/benchmarkH3Api
+[ 45%] Built target benchmarkH3Api
+	-- latLngToCell: 0.451900 microseconds per iteration (10000 iterations)
+	-- cellToLatLng: 0.280400 microseconds per iteration (10000 iterations)
+	-- cellToBoundary: 1.191200 microseconds per iteration (10000 iterations)
+[ 45%] Built target bench_benchmarkH3Api
+[ 45%] Linking C executable bin/benchmarkGridDiskCells
+[ 54%] Built target benchmarkGridDiskCells
+	-- gridDisk10: 5.723600 microseconds per iteration (10000 iterations)
+	-- gridDisk20: 18.729800 microseconds per iteration (10000 iterations)
+	-- gridDisk30: 41.223700 microseconds per iteration (10000 iterations)
+	-- gridDisk40: 71.780600 microseconds per iteration (10000 iterations)
+	-- gridDiskPentagon10: 95.460000 microseconds per iteration (500 iterations)
+	-- gridDiskPentagon20: 880.748000 microseconds per iteration (500 iterations)
+	-- gridDiskPentagon30: 3037.140000 microseconds per iteration (50 iterations)
+	-- gridDiskPentagon40: 7158.800000 microseconds per iteration (10 iterations)
+[ 54%] Built target bench_benchmarkGridDiskCells
+[ 54%] Linking C executable bin/benchmarkGridPathCells
+[ 63%] Built target benchmarkGridPathCells
+	-- gridPathCellsNear: 7.781900 microseconds per iteration (10000 iterations)
+	-- gridPathCellsFar: 417.183000 microseconds per iteration (1000 iterations)
+[ 63%] Built target bench_benchmarkGridPathCells
+[ 63%] Linking C executable bin/benchmarkDirectedEdge
+[ 72%] Built target benchmarkDirectedEdge
+	-- directedEdgeToBoundary: 3.158900 microseconds per iteration (10000 iterations)
+[ 72%] Built target bench_benchmarkDirectedEdge
+[ 72%] Linking C executable bin/benchmarkVertex
+[ 81%] Built target benchmarkVertex
+	-- cellToVertexes: 1.858600 microseconds per iteration (10000 iterations)
+	-- cellToVertexesPent: 0.050800 microseconds per iteration (10000 iterations)
+	-- cellToVertexesRing: 24.786800 microseconds per iteration (10000 iterations)
+	-- cellToVertexesRingPent: 22.667900 microseconds per iteration (10000 iterations)
+[ 81%] Built target bench_benchmarkVertex
+[ 81%] Linking C executable bin/benchmarkIsValidCell
+[ 90%] Built target benchmarkIsValidCell
+	-- pentagonChildren_2_8: 1188.588000 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14: 1649.089000 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14_null_2: 917.588000 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14_null_10: 1531.501000 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14_null_100: 1654.990000 microseconds per iteration (1000 iterations)
+[ 90%] Built target bench_benchmarkIsValidCell
+[ 90%] Building C object CMakeFiles/benchmarkCellsToLinkedMultiPolygon.dir/src/apps/benchmarks/benchmarkCellsToLinkedMultiPolygon.c.o
+[ 90%] Linking C executable bin/benchmarkCellsToLinkedMultiPolygon
+[ 90%] Built target benchmarkCellsToLinkedMultiPolygon
+	-- cellsToLinkedMultiPolygonRing2: 31.651000 microseconds per iteration (10000 iterations)
+LINKED
+	-- cellsToLinkedMultiPolygonDonut: 10.953500 microseconds per iteration (10000 iterations)
+LINKED
+	-- cellsToLinkedMultiPolygonNestedDonuts: 42.997100 microseconds per iteration (10000 iterations)
+[ 90%] Built target bench_benchmarkCellsToLinkedMultiPolygon
+[ 90%] Building C object CMakeFiles/benchmarkPolygonToCells.dir/src/apps/benchmarks/benchmarkPolygonToCells.c.o
+[ 90%] Linking C executable bin/benchmarkPolygonToCells
+[100%] Built target benchmarkPolygonToCells
+GEOFENCE
+	-- polygonToCellsSF: 853.752000 microseconds per iteration (500 iterations)
+GEOFENCE
+	-- polygonToCellsAlameda: 1176.770000 microseconds per iteration (500 iterations)
+GEOFENCE
+	-- polygonToCellsSouthernExpansion: 41166.900000 microseconds per iteration (10 iterations)
+[100%] Built target bench_benchmarkPolygonToCells
+[100%] Built target benchmarks
