@@ -22,6 +22,7 @@
 
 #include <stdbool.h>
 
+#include <omp.h>
 #include "bbox.h"
 #include "h3api.h"
 #include "latLng.h"
@@ -31,7 +32,14 @@
 /** Macro: Init iteration vars for GeoLoop */
 #define INIT_ITERATION_GEOFENCE int loopIndex = -1
 
-#define PARALLEL_ITERATION_GEOFENCE while(true)
+#define PARALLEL_ITERATION_GEOFENCE(geoloop) \
+    while(true)
+    // _Pragma("omp parallel for")
+    // for(int i = 0; i< 10; i++)//++loopIndex < geoloop->numVerts;)
+
+#define PARALLEL_ITERATE_GEOFENCE(geoloop, vertexA, vertexB) \
+    vertexA = geoloop->verts[loopIndex];            \
+    vertexB = geoloop->verts[(loopIndex + 1) % geoloop->numVerts]
 
 /** Macro: Increment GeoLoop loop iteration, or break if done. */
 #define ITERATE_GEOFENCE(geoloop, vertexA, vertexB) \

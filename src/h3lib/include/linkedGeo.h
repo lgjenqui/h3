@@ -32,7 +32,7 @@
     LinkedLatLng *currentCoord = NULL; \
     LinkedLatLng *nextCoord = NULL
 
-#define PARALLEL_ITERATION_LINKED_LOOP while(true)
+#define PARALLEL_ITERATION_LINKED_LOOP(loop) while(true)
 
 /** Macro: Get the next coord in a linked loop, wrapping if needed */
 #define GET_NEXT_COORD(loop, coordToCheck) \

@@ -80,6 +80,7 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
     LatLng a;
     LatLng b;
 
+#ifdef PARALLEL_ITERATE
     INIT_ITERATION;
 
 // #pragma omp parallel for
@@ -87,8 +88,7 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
 //         int thread_id = omp_get_thread_num();  // Get the thread ID
 //         printf("Thread %d is processing iteration %d\n", thread_id, i);
 //     }
-
-    PARALLEL_ITERATION {
+    PARALLEL_ITERATION(loop) {
         PARALLEL_ITERATE(loop, a, b);
 
         // Ray casting algo requires the second point to always be higher
@@ -142,6 +142,71 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
             contains = !contains;
         }
     }
+#endif
+
+#ifdef NORMAL_ITERATE
+    INIT_ITERATION;
+
+// #pragma omp parallel for
+//     for (int i = 0; i < 10; i++) {
+//         int thread_id = omp_get_thread_num();  // Get the thread ID
+//         printf("Thread %d is processing iteration %d\n", thread_id, i);
+//     }
+    while(true) {
+        ITERATE(loop, a, b);
+
+        // Ray casting algo requires the second point to always be higher
+        // than the first, so swap if needed
+        if (a.lat > b.lat) {
+            LatLng tmp = a;
+            a = b;
+            b = tmp;
+        }
+
+        // If the latitude matches exactly, we'll hit an edge case where
+        // the ray passes through the vertex twice on successive segment
+        // checks. To avoid this, adjust the latiude northward if needed.
+        //
+        // NOTE: This currently means that a point at the north pole cannot
+        // be contained in any polygon. This is acceptable in current usage,
+        // because the point we test in this function at present is always
+        // a cell center or vertex, and no cell has a center or vertex on the
+        // north pole. If we need to expand this algo to more generic uses we
+        // might need to handle this edge case.
+        if (lat == a.lat || lat == b.lat) {
+            lat += DBL_EPSILON;
+        }
+
+        // If we're totally above or below the latitude ranges, the test
+        // ray cannot intersect the line segment, so let's move on
+        if (lat < a.lat || lat > b.lat) {
+            continue;
+        }
+
+        double aLng = NORMALIZE_LNG(a.lng, isTransmeridian);
+        double bLng = NORMALIZE_LNG(b.lng, isTransmeridian);
+
+        // Rays are cast in the longitudinal direction, in case a point
+        // exactly matches, to decide tiebreakers, bias westerly
+        if (aLng == lng || bLng == lng) {
+            lng -= DBL_EPSILON;
+        }
+
+        // For the latitude of the point, compute the longitude of the
+        // point that lies on the line segment defined by a and b
+        // This is done by computing the percent above a the lat is,
+        // and traversing the same percent in the longitudinal direction
+        // of a to b
+        double ratio = (lat - a.lat) / (b.lat - a.lat);
+        double testLng =
+            NORMALIZE_LNG(aLng + (bLng - aLng) * ratio, isTransmeridian);
+
+        // Intersection of the ray
+        if (testLng > lng) {
+            contains = !contains;
+        }
+    }
+#endif
 
     return contains;
 }
