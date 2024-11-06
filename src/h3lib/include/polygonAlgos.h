@@ -82,8 +82,14 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
 
     INIT_ITERATION;
 
-    while (true) {
-        ITERATE(loop, a, b);
+// #pragma omp parallel for
+//     for (int i = 0; i < 10; i++) {
+//         int thread_id = omp_get_thread_num();  // Get the thread ID
+//         printf("Thread %d is processing iteration %d\n", thread_id, i);
+//     }
+
+    PARALLEL_ITERATION {
+        PARALLEL_ITERATE(loop, a, b);
 
         // Ray casting algo requires the second point to always be higher
         // than the first, so swap if needed

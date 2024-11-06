@@ -31,6 +31,8 @@
 /** Macro: Init iteration vars for GeoLoop */
 #define INIT_ITERATION_GEOFENCE int loopIndex = -1
 
+#define PARALLEL_ITERATION_GEOFENCE while(true)
+
 /** Macro: Increment GeoLoop loop iteration, or break if done. */
 #define ITERATE_GEOFENCE(geoloop, vertexA, vertexB) \
     if (++loopIndex >= geoloop->numVerts) break;    \
