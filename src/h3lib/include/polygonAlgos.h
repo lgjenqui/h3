@@ -150,7 +150,7 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
 
         // Intersection of the ray
         if (testLng > lng) {
-            #pragma omp atomic
+            // #pragma omp atomic
             newContains += 1;
         }
     }
