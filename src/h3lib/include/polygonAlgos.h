@@ -46,6 +46,10 @@
 #error "INIT_ITERATION must be defined before including this header"
 #endif
 
+#ifndef ITERATE_FOR
+#error "ITERATE_FOR must be defined before including this header"
+#endif
+
 #ifndef ITERATE
 #error "ITERATE must be defined before including this header"
 #endif
@@ -82,7 +86,7 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
 
     INIT_ITERATION;
 
-    while (true) {
+    ITERATE_FOR(loop) {
         ITERATE(loop, a, b);
 
         // Ray casting algo requires the second point to always be higher

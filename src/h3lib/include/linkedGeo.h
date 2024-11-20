@@ -36,6 +36,8 @@
 #define GET_NEXT_COORD(loop, coordToCheck) \
     coordToCheck == NULL ? loop->first : currentCoord->next
 
+#define ITERATE_FOR_LINKED_LOOP(loop)       \
+
 /** Macro: Increment LinkedGeoLoop iteration, or break if done. */
 #define ITERATE_LINKED_LOOP(loop, vertexA, vertexB)       \
     currentCoord = GET_NEXT_COORD(loop, currentCoord);    \

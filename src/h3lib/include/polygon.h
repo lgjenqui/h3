@@ -31,9 +31,10 @@
 /** Macro: Init iteration vars for GeoLoop */
 #define INIT_ITERATION_GEOFENCE int loopIndex = -1
 
+#define ITERATE_FOR_GEOFENCE(geoloop) for (; ++loopIndex < geoloop->numVerts; loopIndex++)
+
 /** Macro: Increment GeoLoop loop iteration, or break if done. */
 #define ITERATE_GEOFENCE(geoloop, vertexA, vertexB) \
-    if (++loopIndex >= geoloop->numVerts) break;    \
     vertexA = geoloop->verts[loopIndex];            \
     vertexB = geoloop->verts[(loopIndex + 1) % geoloop->numVerts]
 

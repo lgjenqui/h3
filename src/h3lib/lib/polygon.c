@@ -32,6 +32,7 @@
 // Define macros used in polygon algos for GeoLoop
 #define TYPE GeoLoop
 #define INIT_ITERATION INIT_ITERATION_GEOFENCE
+#define ITERATE_FOR ITERATE_FOR_GEOFENCE
 #define ITERATE ITERATE_GEOFENCE
 #define IS_EMPTY IS_EMPTY_GEOFENCE
 

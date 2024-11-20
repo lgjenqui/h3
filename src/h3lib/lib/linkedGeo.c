@@ -369,6 +369,7 @@ H3Error normalizeMultiPolygon(LinkedGeoPolygon *root) {
 // Define macros used in polygon algos for LinkedGeoLoop
 #define TYPE LinkedGeoLoop
 #define INIT_ITERATION INIT_ITERATION_LINKED_LOOP
+#define ITERATE_FOR ITERATE_FOR_LINKED_LOOP
 #define ITERATE ITERATE_LINKED_LOOP
 #define IS_EMPTY IS_EMPTY_LINKED_LOOP
 
