@@ -298,16 +298,31 @@ H3Error H3_EXPORT(cellToVertexes)(H3Index cell, H3Index *vertexes) {
     // Get all vertexes. If the cell is a pentagon, will fill the final slot
     // with H3_NULL.
     bool isPent = H3_EXPORT(isPentagon)(cell);
+
+    H3Error cellErrors[NUM_HEX_VERTS] = {E_SUCCESS};
+    #pragma omp parallel for
     for (int i = 0; i < NUM_HEX_VERTS; i++) {
         if (i == 5 && isPent) {
             vertexes[i] = H3_NULL;
         } else {
-            H3Error cellError = H3_EXPORT(cellToVertex)(cell, i, &vertexes[i]);
-            if (cellError) {
-                return cellError;
-            }
+            cellErrors[i] = H3_EXPORT(cellToVertex)(cell, i, &vertexes[i]);
         }
     }
+    for(int i = 0; i < NUM_HEX_VERTS; i++) {
+        if (cellErrors[i]) {
+            return cellErrors[i];
+        }
+    }
+// Parallel
+// real    0m12.206s
+// user    1m25.308s
+// sys     0m0.696s
+// Serial
+// real    0m18.331s
+// user    0m18.240s
+// sys     0m0.031s
+
+
     return E_SUCCESS;
 }
 
