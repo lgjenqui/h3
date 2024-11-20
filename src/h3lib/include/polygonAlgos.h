@@ -77,19 +77,30 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
     double lat = coord->lat;
     double lng = NORMALIZE_LNG(coord->lng, isTransmeridian);
 
-    LatLng a;
-    LatLng b;
-
 #ifdef PARALLEL_ITERATE
-    INIT_ITERATION;
+    int newContains = 0;
+    for(int i = 0; i < loop->numVerts; i++) {
+        if (lat == loop->verts[i].lat) {
+            lat += DBL_EPSILON;
+        }
+        if (lng == NORMALIZE_LNG(loop->verts[i].lng, isTransmeridian)) {
+            lng -= DBL_EPSILON;
+        }
+    }
+    // INIT_ITERATION;
 
 // #pragma omp parallel for
 //     for (int i = 0; i < 10; i++) {
 //         int thread_id = omp_get_thread_num();  // Get the thread ID
 //         printf("Thread %d is processing iteration %d\n", thread_id, i);
 //     }
-    PARALLEL_ITERATION(loop) {
-        PARALLEL_ITERATE(loop, a, b);
+// #pragma omp parallel for shared(newContains)
+// #pragma omp parallel for reduction(+:newContains)
+    for(int loopIndex = 0; loopIndex < loop->numVerts; loopIndex++) {
+        // PARALLEL_ITERATE(loop, a, b);
+
+        LatLng a = loop->verts[loopIndex];
+        LatLng b = loop->verts[(loopIndex + 1) % loop->numVerts];
 
         // Ray casting algo requires the second point to always be higher
         // than the first, so swap if needed
@@ -139,12 +150,16 @@ bool GENERIC_LOOP_ALGO(pointInside)(const TYPE *loop, const BBox *bbox,
 
         // Intersection of the ray
         if (testLng > lng) {
-            contains = !contains;
+            #pragma omp atomic
+            newContains += 1;
         }
     }
+    contains = newContains % 2;
 #endif
 
 #ifdef NORMAL_ITERATE
+    LatLng a;
+    LatLng b;
     INIT_ITERATION;
 
 // #pragma omp parallel for

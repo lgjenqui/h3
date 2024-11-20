@@ -994,6 +994,7 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
             H3Index ring[MAX_ONE_RING_SIZE] = {0};
             H3Index searchHex = search[i];
             H3_EXPORT(gridDisk)(searchHex, 1, ring);
+// #pragma omp parallel for
             for (int j = 0; j < MAX_ONE_RING_SIZE; j++) {
                 if (ring[j] == H3_NULL) {
                     continue;  // Skip if this was a pentagon and only had 5
@@ -1016,7 +1017,8 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
                         H3_MEMORY(free)(search);
                         H3_MEMORY(free)(found);
                         H3_MEMORY(free)(bboxes);
-                        return E_FAILED;
+                        // return E_FAILED;
+                        break;
                     }
                     if (out[loc] == hex) break;  // Skip duplicates found
                     loc = (loc + 1) % numHexagons;
