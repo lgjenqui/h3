@@ -989,10 +989,10 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
         // through all neighbors and test Point-in-Poly, if point-in-poly
         // succeeds, add to out and found hashes if not already there.
         int64_t currentSearchNum = 0;
-        int64_t i = 0;
+        // int64_t i = 0;
         while (currentSearchNum < numSearchHexes) {
             H3Index ring[MAX_ONE_RING_SIZE] = {0};
-            H3Index searchHex = search[i];
+            H3Index searchHex = search[currentSearchNum];
             H3_EXPORT(gridDisk)(searchHex, 1, ring);
 // #pragma omp parallel for
             for (int j = 0; j < MAX_ONE_RING_SIZE; j++) {
@@ -1045,7 +1045,7 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
                 numFoundHexes++;
             }
             currentSearchNum++;
-            i++;
+            // i++;
         }
 
         // Swap the search and found pointers, copy the found hex count to the
