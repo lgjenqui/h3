@@ -709,20 +709,35 @@ H3Error H3_EXPORT(gridPathCells)(H3Index start, H3Index end, H3Index *out) {
     double kStep =
         distance ? (double)(endIjk.k - startIjk.k) / (double)distance : 0;
 
-    CoordIJK currentIjk = {startIjk.i, startIjk.j, startIjk.k};
+    // CoordIJK currentIjk = {startIjk.i, startIjk.j, startIjk.k};
+
+    H3Error *currentErrors = (H3Error *) malloc(sizeof(H3Error) * (distance + 1));
+#pragma omp parallel for schedule(dynamic, 2)
     for (int64_t n = 0; n <= distance; n++) {
+        CoordIJK currentIjk = {startIjk.i, startIjk.j, startIjk.k};
         cubeRound((double)startIjk.i + iStep * n,
                   (double)startIjk.j + jStep * n,
                   (double)startIjk.k + kStep * n, &currentIjk);
         // Convert cube -> ijk -> h3 index
         cubeToIjk(&currentIjk);
-        H3Error currentError = localIjkToCell(start, &currentIjk, &out[n]);
-        if (currentError) {
+        currentErrors[n] = localIjkToCell(start, &currentIjk, &out[n]);
+        // if (currentError) {
+        //     // The cells between `start` and `end` may fall in pentagon
+        //     // distortion.
+        //     return currentError;
+        // }
+    }
+
+    for (int64_t n = 0; n <= distance; n++) {
+        if (currentErrors[n]) {
             // The cells between `start` and `end` may fall in pentagon
             // distortion.
-            return currentError;
+            H3Error error = currentErrors[n];
+            free(currentErrors);
+            return error;
         }
     }
+
 
     return E_SUCCESS;
 }
