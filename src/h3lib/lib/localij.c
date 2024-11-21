@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "alloc.h"
 #include "baseCells.h"
 #include "faceijk.h"
 #include "h3Assert.h"
@@ -711,7 +712,7 @@ H3Error H3_EXPORT(gridPathCells)(H3Index start, H3Index end, H3Index *out) {
 
     // CoordIJK currentIjk = {startIjk.i, startIjk.j, startIjk.k};
 
-    H3Error *currentErrors = (H3Error *) malloc(sizeof(H3Error) * (distance + 1));
+    H3Error *currentErrors = (H3Error *) H3_MEMORY(malloc)(sizeof(H3Error) * (distance + 1));
 #pragma omp parallel for schedule(dynamic, 2)
     for (int64_t n = 0; n <= distance; n++) {
         CoordIJK currentIjk = {startIjk.i, startIjk.j, startIjk.k};
@@ -733,10 +734,11 @@ H3Error H3_EXPORT(gridPathCells)(H3Index start, H3Index end, H3Index *out) {
             // The cells between `start` and `end` may fall in pentagon
             // distortion.
             H3Error error = currentErrors[n];
-            free(currentErrors);
+            H3_MEMORY(free)(currentErrors);
             return error;
         }
     }
+    H3_MEMORY(free)(currentErrors);
 
 
     return E_SUCCESS;

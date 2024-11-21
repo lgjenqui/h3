@@ -300,7 +300,7 @@ H3Error H3_EXPORT(cellToVertexes)(H3Index cell, H3Index *vertexes) {
     bool isPent = H3_EXPORT(isPentagon)(cell);
 
     H3Error cellErrors[NUM_HEX_VERTS] = {E_SUCCESS};
-    // #pragma omp parallel for
+    #pragma omp parallel for
     for (int i = 0; i < NUM_HEX_VERTS; i++) {
         if (i == 5 && isPent) {
             vertexes[i] = H3_NULL;

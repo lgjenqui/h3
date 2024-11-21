@@ -215,9 +215,16 @@ SUITE(h3Memory) {
 
         resetMemoryCounters(3);
         err = H3_EXPORT(polygonToCells)(&sfGeoPolygon, 9, 0, hexagons);
+        t_assert(err == E_MEMORY_ALLOC, "polygonToCells failed (4)");
+        t_assert(actualAllocCalls == 4, "alloc called four times");
+        t_assert(actualFreeCalls == 3, "free called three time");
+
+        resetMemoryCounters(20);
+        err = H3_EXPORT(polygonToCells)(&sfGeoPolygon, 9, 0, hexagons);
         t_assert(err == E_SUCCESS, "polygonToCells succeeded (4)");
-        t_assert(actualAllocCalls == 3, "alloc called three times");
-        t_assert(actualFreeCalls == 3, "free called three times");
+        t_assert(actualAllocCalls == actualFreeCalls, "alloc and free is called same number of times");
+        t_assert(actualAllocCalls == 20, "alloc called 20 times");
+        t_assert(actualFreeCalls == 20, "free called 20 times");
 
         int64_t actualNumIndexes = countNonNullIndexes(hexagons, numHexagons);
         t_assert(actualNumIndexes == 1253, "got expected polygonToCells size");
