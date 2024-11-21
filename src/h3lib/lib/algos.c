@@ -983,102 +983,9 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
     // 3. Re-zero the found hash so it can be used in the main loop below
     for (int64_t i = 0; i < numHexagons; i++) found[i] = H3_NULL;
 
-//     // 4. Begin main loop. While the search hash is not empty do the following
-//     // H3Error *errors = H3_MEMORY(calloc)(numSearchHexes,  sizeof(H3Error));
-//     H3Error status = E_SUCCESS;
-//     while (numSearchHexes > 0) {
-//         // Iterate through all hexagons in the current search hash, then loop
-//         // through all neighbors and test Point-in-Poly, if point-in-poly
-//         // succeeds, add to out and found hashes if not already there.
-//
-//         // #pragma omp parallel for shared(status)
-//         for (int64_t currentSearchNum = 0; currentSearchNum < numSearchHexes; currentSearchNum++) {
-//             H3Index ring[MAX_ONE_RING_SIZE] = {0};
-//             H3Index searchHex = search[currentSearchNum];
-//             H3_EXPORT(gridDisk)(searchHex, 1, ring);
-// // #pragma omp parallel for
-//             for (int j = 0; j < MAX_ONE_RING_SIZE; j++) {
-//                 if (ring[j] == H3_NULL) {
-//                     continue;  // Skip if this was a pentagon and only had 5
-//                                // neighbors
-//                 }
-//
-//                 H3Index hex = ring[j];
-//
-//                 // A simple hash to store the hexagon, or move to another place
-//                 // if needed. This MUST be done before the point-in-poly check
-//                 // since that's far more expensive
-//                 int64_t loc = (int64_t)(hex % numHexagons);
-//                 int64_t loopCount = 0;
-//                 while (out[loc] != 0) {
-//                     // If this branch is reached, we have exceeded the maximum
-//                     // number of hexagons possible and need to clean up the
-//                     // allocated memory.
-//                     // TODO: Reachable via fuzzer
-//                     if (loopCount > numHexagons) {
-//                         #pragma omp critical
-//                         status = E_FAILED;
-//                         loc = -1;
-//                         // H3_MEMORY(free)(search);
-//                         // H3_MEMORY(free)(found);
-//                         // H3_MEMORY(free)(bboxes);
-//                         // return E_FAILED;
-//                         break;
-//                     }
-//                     if (out[loc] == hex) break;  // Skip duplicates found
-//                     loc = (loc + 1) % numHexagons;
-//                     loopCount++;
-//                 }
-//                 if (loc == -1) break; // Error encountered finding loc
-//                 if (out[loc] == hex) {
-//                     continue;  // Skip this hex, already exists in the out hash
-//                 }
-//
-//                 // Check if the hexagon is in the polygon or not
-//                 LatLng hexCenter;
-//                 H3_EXPORT(cellToLatLng)(hex, &hexCenter);
-//
-//                 // If not, skip
-//                 if (!pointInsidePolygon(geoPolygon, bboxes, &hexCenter)) {
-//                     continue;
-//                 }
-//
-//                 // Otherwise set it in the output array
-//                 out[loc] = hex;
-//
-//                 // Set the hexagon in the found hash
-//                 #pragma omp critical
-//                 {
-//                     found[numFoundHexes] = hex;
-//                     numFoundHexes++;
-//                 }
-//             }
-//         }
-//
-//         if (status) {
-//             H3_MEMORY(free)(search);
-//             H3_MEMORY(free)(found);
-//             H3_MEMORY(free)(bboxes);
-//             return status;
-//         }
-//
-//         // Swap the search and found pointers, copy the found hex count to the
-//         // search hex count, and zero everything related to the found memory.
-//         H3Index *temp = search;
-//         search = found;
-//         found = temp;
-//         for (int64_t j = 0; j < numSearchHexes; j++) found[j] = 0;
-//         numSearchHexes = numFoundHexes;
-//         numFoundHexes = 0;
-//         // Repeat until no new hexagons are found
-//     }
-
-
-
-// 4. Begin main loop. While the search hash is not empty do the following
+    // 4. Begin main loop. While the search hash is not empty do the following
     H3Error status = E_SUCCESS;
     while (numSearchHexes > 0) {
-        // printf("%ld\n", numSearchHexes * MAX_ONE_RING_SIZE);
         H3Index *hexIndicesToAdd = H3_MEMORY(calloc)(numSearchHexes * MAX_ONE_RING_SIZE,  sizeof(H3Index));
         if (!hexIndicesToAdd) {
             H3_MEMORY(free)(bboxes);
@@ -1086,21 +993,16 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
             H3_MEMORY(free)(found);
             return E_MEMORY_ALLOC;
         }
-        // printf("%ld\n", numSearchHexes * MAX_ONE_RING_SIZE);
         // Iterate through all hexagons in the current search hash, then loop
         // through all neighbors and test Point-in-Poly, if point-in-poly
         // succeeds, add to out and found hashes if not already there.
 
-        // printf("1\n");
         #pragma omp parallel for shared(status)
         for (int64_t currentSearchNum = 0; currentSearchNum < numSearchHexes; currentSearchNum++) {
             H3Index ring[MAX_ONE_RING_SIZE] = {0};
-            // printf("1\n");
             H3Index searchHex = search[currentSearchNum];
-            // printf("2/n");
             H3_EXPORT(gridDisk)(searchHex, 1, ring);
-            // printf("2\n");
-            // #pragma omp parallel for
+
             for (int j = 0; j < MAX_ONE_RING_SIZE; j++) {
                 if (ring[j] == H3_NULL) {
                     continue;  // Skip if this was a pentagon and only had 5
@@ -1114,7 +1016,6 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
                 // since that's far more expensive
                 int64_t loc = (int64_t)(hex % numHexagons);
                 int64_t loopCount = 0;
-                // printf("4/n");
                 while (out[loc] != 0) {
                     // If this branch is reached, we have exceeded the maximum
                     // number of hexagons possible and need to clean up the
@@ -1124,17 +1025,12 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
                         #pragma omp critical
                         status = E_FAILED;
                         loc = -1;
-                        // H3_MEMORY(free)(search);
-                        // H3_MEMORY(free)(found);
-                        // H3_MEMORY(free)(bboxes);
-                        // return E_FAILED;
                         break;
                     }
                     if (out[loc] == hex) break;  // Skip duplicates found
                     loc = (loc + 1) % numHexagons;
                     loopCount++;
                 }
-                // printf("5/n");
                 if (loc == -1) continue; // Error encountered finding loc
                 if (out[loc] == hex) {
                     continue;  // Skip this hex, already exists in the out hash
@@ -1151,19 +1047,8 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
 
                 // Otherwise set it in the output array
                 hexIndicesToAdd[currentSearchNum * MAX_ONE_RING_SIZE + j] = hex;
-
-                // Set the hexagon in the found hash
-                // #pragma omp critical
-                // {
-                //     // printf("6/n");
-                //     assert(numHexagons > numFoundHexes);
-                //     found[numFoundHexes] = hex;
-                //     // printf("7/n");
-                //     numFoundHexes++;
-                // }
             }
         }
-        // printf("3\n");
 
         if (status) {
             H3_MEMORY(free)(search);
@@ -1219,7 +1104,6 @@ H3Error H3_EXPORT(polygonToCells)(const GeoPolygon *geoPolygon, int res,
     H3_MEMORY(free)(bboxes);
     H3_MEMORY(free)(search);
     H3_MEMORY(free)(found);
-    // H3_MEMORY(free)(errors);
     return E_SUCCESS;
 }
 
