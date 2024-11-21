@@ -1,0 +1,264 @@
+Running tests...
+Test project /home/ljenquin/Developer/h3/build
+        Start   1: testLatLngToCell_test1
+  1/127 Test   #1: testLatLngToCell_test1 .................   Passed    0.00 sec
+        Start   2: testLatLngToCell_test2
+  2/127 Test   #2: testLatLngToCell_test2 .................   Passed    0.00 sec
+        Start   3: testLatLngToCell_test3
+  3/127 Test   #3: testLatLngToCell_test3 .................   Passed    0.00 sec
+        Start   4: testLatLngToCell_test4
+  4/127 Test   #4: testLatLngToCell_test4 .................   Passed    0.00 sec
+        Start   5: testLatLngToCell_test5
+  5/127 Test   #5: testLatLngToCell_test5 .................   Passed    0.00 sec
+        Start   6: testLatLngToCell_test6
+  6/127 Test   #6: testLatLngToCell_test6 .................   Passed    0.00 sec
+        Start   7: testLatLngToCell_test7
+  7/127 Test   #7: testLatLngToCell_test7 .................   Passed    0.01 sec
+        Start   8: testLatLngToCell_test8
+  8/127 Test   #8: testLatLngToCell_test8 .................   Passed    0.01 sec
+        Start   9: testLatLngToCell_test9
+  9/127 Test   #9: testLatLngToCell_test9 .................   Passed    0.00 sec
+        Start  10: testLatLngToCell_test10
+ 10/127 Test  #10: testLatLngToCell_test10 ................   Passed    0.00 sec
+        Start  11: testLatLngToCell_test11
+ 11/127 Test  #11: testLatLngToCell_test11 ................   Passed    0.00 sec
+        Start  12: testLatLngToCell_test12
+ 12/127 Test  #12: testLatLngToCell_test12 ................   Passed    0.00 sec
+        Start  13: testLatLngToCell_test13
+ 13/127 Test  #13: testLatLngToCell_test13 ................   Passed    0.00 sec
+        Start  14: testLatLngToCell_test14
+ 14/127 Test  #14: testLatLngToCell_test14 ................   Passed    0.00 sec
+        Start  15: testLatLngToCell_test15
+ 15/127 Test  #15: testLatLngToCell_test15 ................   Passed    0.01 sec
+        Start  16: testLatLngToCell_test16
+ 16/127 Test  #16: testLatLngToCell_test16 ................   Passed    0.01 sec
+        Start  17: testLatLngToCell_test17
+ 17/127 Test  #17: testLatLngToCell_test17 ................   Passed    0.00 sec
+        Start  18: testLatLngToCell_test18
+ 18/127 Test  #18: testLatLngToCell_test18 ................   Passed    0.00 sec
+        Start  19: testLatLngToCell_test19
+ 19/127 Test  #19: testLatLngToCell_test19 ................   Passed    0.00 sec
+        Start  20: testLatLngToCell_test20
+ 20/127 Test  #20: testLatLngToCell_test20 ................   Passed    0.00 sec
+        Start  21: testLatLngToCell_test21
+ 21/127 Test  #21: testLatLngToCell_test21 ................   Passed    0.00 sec
+        Start  22: testLatLngToCell_test22
+ 22/127 Test  #22: testLatLngToCell_test22 ................   Passed    0.01 sec
+        Start  23: testLatLngToCell_test23
+ 23/127 Test  #23: testLatLngToCell_test23 ................   Passed    0.01 sec
+        Start  24: testLatLngToCell_test24
+ 24/127 Test  #24: testLatLngToCell_test24 ................   Passed    0.01 sec
+        Start  25: testCellToLatLng_test25
+ 25/127 Test  #25: testCellToLatLng_test25 ................   Passed    0.00 sec
+        Start  26: testCellToLatLng_test26
+ 26/127 Test  #26: testCellToLatLng_test26 ................   Passed    0.01 sec
+        Start  27: testCellToLatLng_test27
+ 27/127 Test  #27: testCellToLatLng_test27 ................   Passed    0.02 sec
+        Start  28: testCellToLatLng_test28
+ 28/127 Test  #28: testCellToLatLng_test28 ................   Passed    0.08 sec
+        Start  29: testCellToLatLng_test29
+ 29/127 Test  #29: testCellToLatLng_test29 ................   Passed    0.55 sec
+        Start  30: testLatLngToCell_test30
+ 30/127 Test  #30: testLatLngToCell_test30 ................   Passed    0.02 sec
+        Start  31: testLatLngToCell_test31
+ 31/127 Test  #31: testLatLngToCell_test31 ................   Passed    0.02 sec
+        Start  32: testLatLngToCell_test32
+ 32/127 Test  #32: testLatLngToCell_test32 ................   Passed    0.02 sec
+        Start  33: testLatLngToCell_test33
+ 33/127 Test  #33: testLatLngToCell_test33 ................   Passed    0.02 sec
+        Start  34: testLatLngToCell_test34
+ 34/127 Test  #34: testLatLngToCell_test34 ................   Passed    0.01 sec
+        Start  35: testLatLngToCell_test35
+ 35/127 Test  #35: testLatLngToCell_test35 ................   Passed    0.01 sec
+        Start  36: testLatLngToCell_test36
+ 36/127 Test  #36: testLatLngToCell_test36 ................   Passed    0.02 sec
+        Start  37: testLatLngToCell_test37
+ 37/127 Test  #37: testLatLngToCell_test37 ................   Passed    0.02 sec
+        Start  38: testLatLngToCell_test38
+ 38/127 Test  #38: testLatLngToCell_test38 ................   Passed    0.02 sec
+        Start  39: testLatLngToCell_test39
+ 39/127 Test  #39: testLatLngToCell_test39 ................   Passed    0.03 sec
+        Start  40: testLatLngToCell_test40
+ 40/127 Test  #40: testLatLngToCell_test40 ................   Passed    0.02 sec
+        Start  41: testCellToBoundary_test41
+ 41/127 Test  #41: testCellToBoundary_test41 ..............   Passed    0.00 sec
+        Start  42: testCellToBoundary_test42
+ 42/127 Test  #42: testCellToBoundary_test42 ..............   Passed    0.00 sec
+        Start  43: testCellToBoundary_test43
+ 43/127 Test  #43: testCellToBoundary_test43 ..............   Passed    0.00 sec
+        Start  44: testCellToBoundary_test44
+ 44/127 Test  #44: testCellToBoundary_test44 ..............   Passed    0.00 sec
+        Start  45: testCellToBoundary_test45
+ 45/127 Test  #45: testCellToBoundary_test45 ..............   Passed    0.00 sec
+        Start  46: testCellToBoundary_test46
+ 46/127 Test  #46: testCellToBoundary_test46 ..............   Passed    0.00 sec
+        Start  47: testCellToBoundary_test47
+ 47/127 Test  #47: testCellToBoundary_test47 ..............   Passed    0.01 sec
+        Start  48: testCellToBoundary_test48
+ 48/127 Test  #48: testCellToBoundary_test48 ..............   Passed    0.02 sec
+        Start  49: testCellToBoundary_test49
+ 49/127 Test  #49: testCellToBoundary_test49 ..............   Passed    0.00 sec
+        Start  50: testCellToBoundary_test50
+ 50/127 Test  #50: testCellToBoundary_test50 ..............   Passed    0.00 sec
+        Start  51: testCellToBoundary_test51
+ 51/127 Test  #51: testCellToBoundary_test51 ..............   Passed    0.01 sec
+        Start  52: testCellToBoundary_test52
+ 52/127 Test  #52: testCellToBoundary_test52 ..............   Passed    0.01 sec
+        Start  53: testCellToBoundary_test53
+ 53/127 Test  #53: testCellToBoundary_test53 ..............   Passed    0.01 sec
+        Start  54: testCellToBoundary_test54
+ 54/127 Test  #54: testCellToBoundary_test54 ..............   Passed    0.01 sec
+        Start  55: testCellToBoundary_test55
+ 55/127 Test  #55: testCellToBoundary_test55 ..............   Passed    0.02 sec
+        Start  56: testCellToBoundary_test56
+ 56/127 Test  #56: testCellToBoundary_test56 ..............   Passed    0.02 sec
+        Start  57: testCellToBoundary_test57
+ 57/127 Test  #57: testCellToBoundary_test57 ..............   Passed    0.00 sec
+        Start  58: testCellToBoundary_test58
+ 58/127 Test  #58: testCellToBoundary_test58 ..............   Passed    0.00 sec
+        Start  59: testCellToBoundary_test59
+ 59/127 Test  #59: testCellToBoundary_test59 ..............   Passed    0.00 sec
+        Start  60: testCellToBoundary_test60
+ 60/127 Test  #60: testCellToBoundary_test60 ..............   Passed    0.00 sec
+        Start  61: testCellToBoundary_test61
+ 61/127 Test  #61: testCellToBoundary_test61 ..............   Passed    0.00 sec
+        Start  62: testCellToBoundary_test62
+ 62/127 Test  #62: testCellToBoundary_test62 ..............   Passed    0.00 sec
+        Start  63: testCellToBoundary_test63
+ 63/127 Test  #63: testCellToBoundary_test63 ..............   Passed    0.01 sec
+        Start  64: testCellToBoundary_test64
+ 64/127 Test  #64: testCellToBoundary_test64 ..............   Passed    0.02 sec
+        Start  65: testCellToBoundary_test65
+ 65/127 Test  #65: testCellToBoundary_test65 ..............   Passed    0.02 sec
+        Start  66: testCellToBoundary_test66
+ 66/127 Test  #66: testCellToBoundary_test66 ..............   Passed    0.03 sec
+        Start  67: testCellToBoundary_test67
+ 67/127 Test  #67: testCellToBoundary_test67 ..............   Passed    0.03 sec
+        Start  68: testCellToBoundary_test68
+ 68/127 Test  #68: testCellToBoundary_test68 ..............   Passed    0.03 sec
+        Start  69: testCellToBoundary_test69
+ 69/127 Test  #69: testCellToBoundary_test69 ..............   Passed    0.03 sec
+        Start  70: testCellToBoundary_test70
+ 70/127 Test  #70: testCellToBoundary_test70 ..............   Passed    0.03 sec
+        Start  71: testCellToBoundary_test71
+ 71/127 Test  #71: testCellToBoundary_test71 ..............   Passed    0.03 sec
+        Start  72: testCellToBoundary_test72
+ 72/127 Test  #72: testCellToBoundary_test72 ..............   Passed    0.03 sec
+        Start  73: testCellToBoundary_test73
+ 73/127 Test  #73: testCellToBoundary_test73 ..............   Passed    0.03 sec
+        Start  74: testCellToBoundary_test74
+ 74/127 Test  #74: testCellToBoundary_test74 ..............   Passed    0.03 sec
+        Start  75: testCellToBoundary_test75
+ 75/127 Test  #75: testCellToBoundary_test75 ..............   Passed    0.04 sec
+        Start  76: testCellToBoundary_test76
+ 76/127 Test  #76: testCellToBoundary_test76 ..............   Passed    0.00 sec
+        Start  77: testCellToBoundary_test77
+ 77/127 Test  #77: testCellToBoundary_test77 ..............   Passed    0.01 sec
+        Start  78: testCellToBoundary_test78
+ 78/127 Test  #78: testCellToBoundary_test78 ..............   Passed    0.03 sec
+        Start  79: testCellToBoundary_test79
+ 79/127 Test  #79: testCellToBoundary_test79 ..............   Passed    0.17 sec
+        Start  80: testCellToBoundaryEdgeCases_test80
+ 80/127 Test  #80: testCellToBoundaryEdgeCases_test80 .....   Passed    0.00 sec
+        Start  81: testCompactCells_test81
+ 81/127 Test  #81: testCompactCells_test81 ................   Passed    0.00 sec
+        Start  82: testGridDisk_test82
+ 82/127 Test  #82: testGridDisk_test82 ....................   Passed    0.02 sec
+        Start  83: testGridRingUnsafe_test83
+ 83/127 Test  #83: testGridRingUnsafe_test83 ..............   Passed    0.00 sec
+        Start  84: testGridDisksUnsafe_test84
+ 84/127 Test  #84: testGridDisksUnsafe_test84 .............   Passed    0.00 sec
+        Start  85: testCellToParent_test85
+ 85/127 Test  #85: testCellToParent_test85 ................   Passed    0.00 sec
+        Start  86: testCellToCenterChild_test86
+ 86/127 Test  #86: testCellToCenterChild_test86 ...........   Passed    0.00 sec
+        Start  87: testCellToChildren_test87
+ 87/127 Test  #87: testCellToChildren_test87 ..............   Passed    0.00 sec
+        Start  88: testCellToChildPos_test88
+ 88/127 Test  #88: testCellToChildPos_test88 ..............   Passed    0.33 sec
+        Start  89: testGetIcosahedronFaces_test89
+ 89/127 Test  #89: testGetIcosahedronFaces_test89 .........   Passed    0.00 sec
+        Start  90: testCellToChildrenSize_test90
+ 90/127 Test  #90: testCellToChildrenSize_test90 ..........   Passed    0.00 sec
+        Start  91: testH3Index_test91
+ 91/127 Test  #91: testH3Index_test91 .....................   Passed    0.00 sec
+        Start  92: testH3Api_test92
+ 92/127 Test  #92: testH3Api_test92 .......................   Passed    0.00 sec
+        Start  93: testCellsToLinkedMultiPolygon_test93
+ 93/127 Test  #93: testCellsToLinkedMultiPolygon_test93 ...   Passed    0.00 sec
+        Start  94: testH3SetToVertexGraph_test94
+ 94/127 Test  #94: testH3SetToVertexGraph_test94 ..........   Passed    0.00 sec
+        Start  95: testLinkedGeo_test95
+ 95/127 Test  #95: testLinkedGeo_test95 ...................   Passed    0.00 sec
+        Start  96: testPolygonToCells_test96
+ 96/127 Test  #96: testPolygonToCells_test96 ..............   Passed    0.79 sec
+        Start  97: testPolygonToCellsReported_test97
+ 97/127 Test  #97: testPolygonToCellsReported_test97 ......   Passed    0.05 sec
+        Start  98: testVertexGraph_test98
+ 98/127 Test  #98: testVertexGraph_test98 .................   Passed    0.00 sec
+        Start  99: testDirectedEdge_test99
+ 99/127 Test  #99: testDirectedEdge_test99 ................   Passed    0.00 sec
+        Start 100: testLatLng_test100
+100/127 Test #100: testLatLng_test100 .....................   Passed    0.00 sec
+        Start 101: testBBox_test101
+101/127 Test #101: testBBox_test101 .......................   Passed    0.00 sec
+        Start 102: testVertex_test102
+102/127 Test #102: testVertex_test102 .....................   Passed    0.00 sec
+        Start 103: testPolygon_test103
+103/127 Test #103: testPolygon_test103 ....................   Passed    0.00 sec
+        Start 104: testVec2d_test104
+104/127 Test #104: testVec2d_test104 ......................   Passed    0.00 sec
+        Start 105: testVec3d_test105
+105/127 Test #105: testVec3d_test105 ......................   Passed    0.00 sec
+        Start 106: testCellToLocalIj_test106
+106/127 Test #106: testCellToLocalIj_test106 ..............   Passed    0.23 sec
+        Start 107: testGridDistance_test107
+107/127 Test #107: testGridDistance_test107 ...............   Passed    0.00 sec
+        Start 108: testGridPathCells_test108
+108/127 Test #108: testGridPathCells_test108 ..............   Passed    0.00 sec
+        Start 109: testH3CellArea_test109
+109/127 Test #109: testH3CellArea_test109 .................   Passed    0.00 sec
+        Start 110: testCoordIj_test110
+110/127 Test #110: testCoordIj_test110 ....................   Passed    0.00 sec
+        Start 111: testCoordIjk_test111
+111/127 Test #111: testCoordIjk_test111 ...................   Passed    0.00 sec
+        Start 112: testBaseCells_test112
+112/127 Test #112: testBaseCells_test112 ..................   Passed    0.00 sec
+        Start 113: testPentagonIndexes_test113
+113/127 Test #113: testPentagonIndexes_test113 ............   Passed    0.00 sec
+        Start 114: testH3Iterators_test114
+114/127 Test #114: testH3Iterators_test114 ................   Passed    0.01 sec
+        Start 115: testMathExtensions_test115
+115/127 Test #115: testMathExtensions_test115 .............   Passed    0.00 sec
+        Start 116: testH3NeighborRotations_test116
+116/127 Test #116: testH3NeighborRotations_test116 ........   Passed    0.01 sec
+        Start 117: testH3NeighborRotations_test117
+117/127 Test #117: testH3NeighborRotations_test117 ........   Passed    0.03 sec
+        Start 118: testH3NeighborRotations_test118
+118/127 Test #118: testH3NeighborRotations_test118 ........   Passed    0.20 sec
+        Start 119: testDirectedEdgeExhaustive_test119
+119/127 Test #119: testDirectedEdgeExhaustive_test119 .....   Passed    9.16 sec
+        Start 120: testVertexExhaustive_test120
+120/127 Test #120: testVertexExhaustive_test120 ...........   Passed   12.23 sec
+        Start 121: testCellToLocalIjExhaustive_test121
+121/127 Test #121: testCellToLocalIjExhaustive_test121 ....   Passed    8.83 sec
+        Start 122: testGridPathCellsExhaustive_test122
+122/127 Test #122: testGridPathCellsExhaustive_test122 ....   Passed   12.74 sec
+        Start 123: testGridDistanceExhaustive_test123
+123/127 Test #123: testGridDistanceExhaustive_test123 .....   Passed    2.98 sec
+        Start 124: testH3CellAreaExhaustive_test124
+124/127 Test #124: testH3CellAreaExhaustive_test124 .......   Passed    4.84 sec
+        Start 125: testCliCellToLatLng_test124
+125/127 Test #125: testCliCellToLatLng_test124 ............   Passed    0.00 sec
+        Start 126: testCliLatLngToCell_test124
+126/127 Test #126: testCliLatLngToCell_test124 ............   Passed    0.00 sec
+        Start 127: testH3Memory_test125
+127/127 Test #127: testH3Memory_test125 ...................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 127
+
+Total Test time (real) =  54.36 sec
+
+real    0m54.421s
+user    4m31.262s
+sys     0m2.358s
