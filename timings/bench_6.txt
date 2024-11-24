@@ -1,0 +1,53 @@
+[ 27%] Built target h3
+[ 36%] Built target benchmarkPolygon
+	-- pointInsideGeoLoopSmall: 0.063783 microseconds per iteration (100000 iterations)
+	-- pointInsideGeoLoopLarge: 0.581839 microseconds per iteration (100000 iterations)
+	-- bboxFromGeoLoopSmall: 0.039767 microseconds per iteration (100000 iterations)
+	-- bboxFromGeoLoopLarge: 0.530539 microseconds per iteration (100000 iterations)
+[ 36%] Built target bench_benchmarkPolygon
+[ 45%] Built target benchmarkH3Api
+	-- latLngToCell: 1.492140 microseconds per iteration (10000 iterations)
+	-- cellToLatLng: 0.572429 microseconds per iteration (10000 iterations)
+	-- cellToBoundary: 2.110130 microseconds per iteration (10000 iterations)
+[ 45%] Built target bench_benchmarkH3Api
+[ 54%] Built target benchmarkGridDiskCells
+	-- gridDisk10: 9.860809 microseconds per iteration (10000 iterations)
+	-- gridDisk20: 35.077337 microseconds per iteration (10000 iterations)
+	-- gridDisk30: 77.344941 microseconds per iteration (10000 iterations)
+	-- gridDisk40: 134.689346 microseconds per iteration (10000 iterations)
+	-- gridDiskPentagon10: 220.747896 microseconds per iteration (500 iterations)
+	-- gridDiskPentagon20: 1843.552332 microseconds per iteration (500 iterations)
+	-- gridDiskPentagon30: 6124.667980 microseconds per iteration (50 iterations)
+	-- gridDiskPentagon40: 14470.158900 microseconds per iteration (10 iterations)
+[ 54%] Built target bench_benchmarkGridDiskCells
+[ 63%] Built target benchmarkGridPathCells
+	-- gridPathCellsNear: 12.347656 microseconds per iteration (10000 iterations)
+	-- gridPathCellsFar: 422.379240 microseconds per iteration (1000 iterations)
+[ 63%] Built target bench_benchmarkGridPathCells
+[ 72%] Built target benchmarkDirectedEdge
+	-- directedEdgeToBoundary: 11.368702 microseconds per iteration (10000 iterations)
+[ 72%] Built target bench_benchmarkDirectedEdge
+[ 81%] Built target benchmarkVertex
+	-- cellToVertexes: 2.799936 microseconds per iteration (10000 iterations)
+	-- cellToVertexesPent: 0.641279 microseconds per iteration (10000 iterations)
+	-- cellToVertexesRing: 42.695114 microseconds per iteration (10000 iterations)
+	-- cellToVertexesRingPent: 35.553140 microseconds per iteration (10000 iterations)
+[ 81%] Built target bench_benchmarkVertex
+[ 90%] Built target benchmarkIsValidCell
+	-- pentagonChildren_2_8: 2461.033171 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14: 3195.567753 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14_null_2: 1398.376055 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14_null_10: 3017.121238 microseconds per iteration (1000 iterations)
+	-- pentagonChildren_8_14_null_100: 3181.121958 microseconds per iteration (1000 iterations)
+[ 90%] Built target bench_benchmarkIsValidCell
+[ 90%] Built target benchmarkCellsToLinkedMultiPolygon
+	-- cellsToLinkedMultiPolygonRing2: 56.327767 microseconds per iteration (10000 iterations)
+	-- cellsToLinkedMultiPolygonDonut: 18.404939 microseconds per iteration (10000 iterations)
+	-- cellsToLinkedMultiPolygonNestedDonuts: 75.322053 microseconds per iteration (10000 iterations)
+[ 90%] Built target bench_benchmarkCellsToLinkedMultiPolygon
+[100%] Built target benchmarkPolygonToCells
+	-- polygonToCellsSF: 1004.639224 microseconds per iteration (500 iterations)
+	-- polygonToCellsAlameda: 1539.437940 microseconds per iteration (500 iterations)
+	-- polygonToCellsSouthernExpansion: 38157.750500 microseconds per iteration (10 iterations)
+[100%] Built target bench_benchmarkPolygonToCells
+[100%] Built target benchmarks
